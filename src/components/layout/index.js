@@ -5,8 +5,8 @@ import MenuLeft from '../menuLeft';
 
 export default function Layout({ children, page }) {
     useEffect(() => {
-
-    }, [])
+        if (!dates?.date?.uid) router.push('login')
+    }, [dates?.date?.uid])
     const dates = useDados()
     return (
         <div className='h-full w-full grad flex text-white' >
