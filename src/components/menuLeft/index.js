@@ -9,7 +9,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 
 export default function MenuLeft({ page }) {
-    // const dates = useDados()
+    const dates = useDados()
     const [select, setSelect] = useState(page)
     return (
         <div className={`h-auto w-2/12  bgmenu flex flex-col items-center `} >
@@ -46,6 +46,7 @@ export default function MenuLeft({ page }) {
             </ul>
             <div className='p-5 h-20 flex justify-center items-center cursor-pointer'
                 onClick={() => {
+                    dates.remooverCookie()
                     setSelect('login')
                     router.push('/login')
                 }}>

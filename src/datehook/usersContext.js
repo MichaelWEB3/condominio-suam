@@ -33,6 +33,12 @@ export function UserProvider(props) {
             alert("erro de requisição")
         })
     }
+
+    async function remooverCookie() {
+        await Cookies.remove('uid')
+        await Cookies.remove('email')
+        await Cookies.remove('password')
+    }
     async function handlerCreate(email, password, name, cnpj) {
         await axios.post('/api/create', {
             email: email,
@@ -184,7 +190,8 @@ export function UserProvider(props) {
             morador,
             deleteMorador,
             updateMorador,
-            setSeelct
+            setSeelct,
+            remooverCookie
         }}>
             {props.children}
         </userContext.Provider>
