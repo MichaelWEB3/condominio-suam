@@ -9,7 +9,7 @@ export default function Login() {
   const dates = useDados()
 
   function getCreate() {
-    router.push('/crate')
+    router.push('/create')
   }
 
   async function handlerLogin() {
