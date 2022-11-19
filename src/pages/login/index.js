@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import useDados from '../../datehook/userHook';
-//import router from 'next/router'
+import router from 'next/router'
 
 export default function Login() {
   const [password, setpassword] = useState('')
   const [email, setemail] = useState('')
   const dates = useDados()
 
-  function getEmail() {
-    window.open(`m3ribeiroo@gmail.com`)
+  function getCreate() {
+    router.push('/home')
   }
 
   async function handlerLogin() {
@@ -44,7 +44,7 @@ export default function Login() {
           </button>
           <div className='w-full mt-5 flex justify-start items-center'>
             <span className='mr-2'>Duvidas? </span>
-            <span className='font-bold text-sm cursor-pointer' onClick={() => getEmail()}>Entre em contato com o suporte.</span>
+            <span className='font-bold text-sm cursor-pointer' onClick={() => getCreate()}>Entre em contato com o suporte.</span>
           </div>
         </div>
       </div>
