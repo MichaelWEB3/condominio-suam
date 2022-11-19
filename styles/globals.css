@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.grad {
+    background-image: linear-gradient(to right, #16114B, #6E6A95);
+}
+.gradLogin {
+    background-image: linear-gradient(to right, #16114B, #6E6A95);
+}
+
+
+.trnaslucid {
+    background-color: #00000010;
+
+}
+
+input,
+textarea,
+select {
+    outline: 0;
+}
+
+.bgmenu {
+    background-color: #16114bb6;
+
+}
+
+.lateral {
+    box-shadow: 0 0px 6px -4px rgb(185, 184, 184);
+
+}
+
+.fullcolor{
+  
+    box-shadow: 0 4px 6px -4px rgba(34, 34, 34, 0.795);
+    
+}
+
+.styleSelect{
+    background-color: #413f52;
+    height: 40px;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.fullcolorChat{
+    box-shadow: 2px 2px 2px 2px rgba(58, 58, 58, 0.493);
+
+}
