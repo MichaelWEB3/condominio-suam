@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useDados from '../../datehook/userHook';
 import router from 'next/router'
 import MenuLeft from '../menuLeft';
 
 export default function Layout({ children, page }) {
+    useEffect(() => {
+
+    }, [])
     const dates = useDados()
     return (
         <div className='h-full w-full grad flex text-white' >

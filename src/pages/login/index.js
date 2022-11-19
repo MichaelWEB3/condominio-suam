@@ -9,7 +9,7 @@ export default function Login() {
   const dates = useDados()
 
   function getCreate() {
-    router.push('/home')
+    router.push('/crate')
   }
 
   async function handlerLogin() {
@@ -43,8 +43,8 @@ export default function Login() {
             <span>Login</span>
           </button>
           <div className='w-full mt-5 flex justify-start items-center'>
-            <span className='mr-2'>Duvidas? </span>
-            <span className='font-bold text-sm cursor-pointer' onClick={() => getCreate()}>Entre em contato com o suporte.</span>
+            <span className='mr-2'>Não tem conta? </span>
+            <span className='font-bold text-sm cursor-pointer' onClick={() => getCreate()}>Crie uma conta.</span>
           </div>
         </div>
       </div>
