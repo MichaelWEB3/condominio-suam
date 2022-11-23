@@ -29,8 +29,6 @@ export function UserProvider(props) {
             Cookies.set('password', password)
             Cookies.set('uid', resp.data.uid)
             if (loading) router.push('/home')
-        }).catch((e) => {
-            alert("erro de requisição")
         })
     }
 

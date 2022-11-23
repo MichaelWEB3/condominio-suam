@@ -21,18 +21,20 @@ export default function Home() {
           <span className=' text-sm uppercase'><span className='font-bold'>Quantidade total de moradores:</span> {dates?.date?.moradores?.length}</span>
         </div>
 
+        {dates?.date?.condominio.length > 1 &&
+          <div className='flex md:flex-row flex-col w-full  h-1/2'>
+            <div className=' w-full md:w-1/2 flex justify-center  fullcolorChat m-5 flex-col'>
+              <span className=" font-bold">Fluxo geral de Condominio</span>
+              <ChartCondominio condominio={dates?.date?.condominio} />
+            </div>
+            <div className='w-full  md:w-1/2 flex justify-center  fullcolorChat m-5 flex-col'>
+              <span className=" font-bold">Fluxo geral de Moradores </span>
+              <ChartMorador moradores={dates?.date?.moradores} />
 
-        <div className='flex md:flex-row flex-col w-full  h-1/2'>
-          <div className=' w-full md:w-1/2 flex justify-center  fullcolorChat m-5 flex-col'>
-            <span className=" font-bold">Fluxo geral de Condominio</span>
-            <ChartCondominio condominio={dates?.date?.condominio} />
+            </div>
           </div>
-          <div className='w-full  md:w-1/2 flex justify-center  fullcolorChat m-5 flex-col'>
-            <span className=" font-bold">Fluxo geral de Moradores </span>
-            <ChartMorador moradores={dates?.date?.moradores} />
+        }
 
-          </div>
-        </div>
         <div className='w-full flex justify-center items-center mt-10 '>
           <select className=' w-full  styleSelect border-none border-b-4  border-red-600' onChange={(item) => dates.getCondominio(dates?.date?.uid, item.target.value)}>
             {dates?.date?.condominio?.map((item, index) => {
