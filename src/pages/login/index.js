@@ -10,6 +10,7 @@ export default function Login() {
 
   function getCreate() {
     router.push('/create')
+  
   }
 
   async function handlerLogin() {
