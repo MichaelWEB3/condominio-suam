@@ -19,9 +19,8 @@ export default async function Create(req, res) {
         const auth = getAuth(appfire)
         const db = getFirestore(appfire);
         await createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const docRef = doc(db, "empresas", userCredential.user.uid);
-                setDoc(doc(db, "empresas", userCredential.user.uid), {
+            .then(async (userCredential) => {
+                await setDoc(doc(db, "empresas", userCredential.user.uid), {
                     nome,
                     email,
                     cnpj,
