@@ -14,7 +14,7 @@ export default async function Create(req, res) {
         'Access-Control-Allow-Headers',
         'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
     )
-    const { email, password, name, cnpj } = req.body
+    const { email, password, nome, cnpj } = req.body
     if (req.method == 'POST') {
         const auth = getAuth(appfire)
         const db = getFirestore(appfire);

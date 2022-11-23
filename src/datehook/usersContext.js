@@ -43,7 +43,7 @@ export function UserProvider(props) {
         await axios.post('/api/create', {
             email: email,
             password: password,
-            name: name,
+            nome: name,
             cnpj: cnpj,
         }).then(() => {
             router.push('/login')
