@@ -22,7 +22,7 @@ export default function Login() {
       <div className="w-full h-full justify-center items-center flex ">
         <h1 className="font-bold  text-4xl">
           <Typewriter onInit={(typewriter) => {
-            typewriter.typeString('Holla, seja bem-vindo a o condominio-suam.')
+            typewriter.typeString('Holla, seja bem-vindo a o gerenciamento de ondominio da suam.')
               .pauseFor(2500)
               .start();
           }}
