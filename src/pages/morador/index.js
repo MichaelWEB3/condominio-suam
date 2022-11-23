@@ -49,8 +49,8 @@ export default function Morador() {
   }, [idCodominio, cretMorador])
 
   function getInfos() {
-    dates?.getCondominio(dates?.date?.uid, idCodominio)
-    dates?.getMoradores(dates?.date?.uid, idCodominio)
+    if (dates?.date?.condominio) dates?.getCondominio(dates?.date?.uid, idCodominio)
+    if (dates?.date?.moradores) dates?.getMoradores(dates?.date?.uid, idCodominio)
   }
 
   return (
@@ -60,9 +60,11 @@ export default function Morador() {
           <select className=' w-full  styleSelect  border-red-600' ref={item} onChange={(item) => {
             setIDcodominio(item.target.value)
             dates?.getCondominio(dates?.date?.uid, item.target.value)
-            dates?.getMoradores(dates?.date?.uid, item.target.value)
+            setcreate(true)
+
+            if (dates?.date?.moradores) dates?.getMoradores(dates?.date?.uid, item.target.value)
           }}>
-            <option > Selecione um condominio</option>
+            <option> Selecione um condominio</option>
             {dates?.date?.condominio?.map((item, index) => {
               return <option value={index} key={index} > {item.nome}</option>
             })}
@@ -116,11 +118,13 @@ export default function Morador() {
           </label>
           {create &&
             <button className='w-full mt-2 h-10 bg-red-400 hover:bg-red-500 ' onClick={() => {
-              setcretMorador('criar')
-              setcreate(true)
-              dates?.setSeelct('criar')
-              dates.setMorador(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
-              getInfos()
+              if (rg && morador && idade && cpf && telefone && rgNovo && status) {
+                dates.setMorador(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
+                getInfos()
+                window.location.reload()
+              }else{
+                alert("preencha todos os campos")
+              }
             }}>
               <span>Criar</span>
             </button>
@@ -129,22 +133,17 @@ export default function Morador() {
             <>
               <button className='w-full mt-2 h-10 bg-red-400 hover:bg-red-500 ' onClick={() => {
                 dates?.deleteMorador(dates?.date?.uid, idCodominio, idMorador)
-                setcreate(true)
-                setrgNew(false)
-                setcretMorador('excluir')
                 dates?.setSeelct('excluir')
-
+                window.location.reload()
               }}>
                 <span>Excluir</span>
               </button>
               <button className='w-full mt-2 h-10 bg-red-400 hover:bg-red-500 '
                 onClick={() => {
-                  setrgNew(false)
-                  setcreate(true)
-                  setcretMorador('atualizar')
                   dates?.setSeelct('atualizar')
                   dates?.updateMorador(dates?.date?.uid, idCodominio, rg, morador, idade, cpf, telefone, rgNovo, status)
                   getInfos()
+                  window.location.reload()
                 }
                 }>
                 <span>Editar</span>

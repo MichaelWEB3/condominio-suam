@@ -19,24 +19,47 @@ export default async function SetCondominio(req, res) {
     if (req.method === 'POST') {
         await getDoc(docRef).then(async (item) => {
             if (item.exists()) {
+
                 const arraydate = item.data()
-                await updateDoc(docRef, {
-                    condominio: [
-                        ...arraydate.condominio,
-                        {
-                            nome: nome,
-                            cep: cep,
-                            rua: rua,
-                            numero: numero,
-                            bairro: bairro,
-                            status: status
-                        }
-                    ]
-                }).then(() => {
-                    res.status(200).json({ status: "sucess crete " })
-                }).catch((e) => {
-                    res.status(400).json({ status: "falid crete  " })
-                })
+                if (arraydate.condominio) {
+                    await updateDoc(docRef, {
+                        condominio: [
+                            ...arraydate.condominio,
+                            {
+                                nome: nome,
+                                cep: cep,
+                                rua: rua,
+                                numero: numero,
+                                bairro: bairro,
+                                status: status
+                            }
+                        ]
+                    }).then(() => {
+
+                        res.status(200).json({ status: "sucess crete " })
+                    }).catch((e) => {
+                        res.status(400).json({ status: "falid crete  " })
+                    })
+                } else {
+                    await updateDoc(docRef, {
+                        condominio: [
+                            {
+                                nome: nome,
+                                cep: cep,
+                                rua: rua,
+                                numero: numero,
+                                bairro: bairro,
+                                status: status
+                            }
+                        ]
+                    }).then(() => {
+
+                        res.status(200).json({ status: "sucess crete " })
+                    }).catch((e) => {
+                        res.status(400).json({ status: "falid crete  " })
+                    })
+                }
+
             }
         }).catch((e) => {
             res.status(400).json({ status: "error " })

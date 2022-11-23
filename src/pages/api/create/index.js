@@ -24,9 +24,7 @@ export default async function Create(req, res) {
                     nome,
                     email,
                     cnpj,
-                    condominio: [{
-                        moradores: [{}],
-                    }],
+                   
                 }).then((resp) => {
                     res.status(200).json({ uid: userCredential.user.uid })
                 })

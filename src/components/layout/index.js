@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import useDados from '../../datehook/userHook';
 import router from 'next/router'
 import MenuLeft from '../menuLeft';
+import Cookies from 'js-cookie'
 
 export default function Layout({ children, page }) {
     const dates = useDados()
-
     useEffect(() => {
-        if (!dates?.date?.uid) router.push('login')
-    }, [dates?.date?.uid])
+        const getcokie = Cookies.get('uid')
+        if (!getcokie) router.push('login')
+    }, [])
     return (
         <div className='h-full w-full grad flex text-white' >
             <MenuLeft page={page} />
