@@ -118,11 +118,13 @@ export default function Morador() {
           </label>
           {create &&
             <button className='w-full mt-2 h-10 bg-red-400 hover:bg-red-500 ' onClick={() => {
-              if (rg && morador && idade && cpf && telefone && rgNovo && status) {
+              console.log(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
+
+              if (rg || morador || idade || cpf || telefone || status) {
                 dates.setMorador(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
                 getInfos()
                 window.location.reload()
-              }else{
+              } else {
                 alert("preencha todos os campos")
               }
             }}>
