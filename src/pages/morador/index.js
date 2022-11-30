@@ -72,6 +72,7 @@ export default function Morador() {
           {dates?.moradores &&
             < select className=' w-full  styleSelect  border-red-600' onChange={(item) => {
               if (item.target.value == 'new') {
+                setrgNew(false)
                 setcreate(true)
               } else {
                 // dates?.getMoradores(dates?.date?.uid, item.target.value)
@@ -120,10 +121,10 @@ export default function Morador() {
             <button className='w-full mt-2 h-10 bg-red-400 hover:bg-red-500 ' onClick={() => {
               console.log(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
 
-              if (rg || morador || idade || cpf || telefone || status) {
+              if (rg && morador && idade && cpf && telefone && status) {
                 dates.setMorador(dates?.date?.uid, idCodominio, morador, idade, cpf, telefone, rg, status)
                 getInfos()
-                window.location.reload()
+                ///  window.location.reload()
               } else {
                 alert("preencha todos os campos")
               }
