@@ -29,7 +29,9 @@ export function UserProvider(props) {
             Cookies.set('password', password)
             Cookies.set('uid', resp.data.uid)
             if (loading) router.push('/home')
-        })
+        }).catch((e) =>
+            alert('Erro ao tentar logar, verifique seu e-mail ou senha')
+        )
     }
 
     async function remooverCookie() {

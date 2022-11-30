@@ -8,9 +8,18 @@ export default function Create() {
   const [email, setemail] = useState('')
   const [name, setname] = useState('')
   const [cnpj, setcnpj] = useState('')
+  const [error, seterror] = useState(false)
   const dates = useDados()
 
   async function handlerCreate() {
+
+    if (!email || !password || !name || !cnpj) {
+      seterror(true)
+      setTimeout(() => {
+        seterror(false)
+      }, (3000));
+      return
+    }
     dates.handlerCreate(email, password, name, cnpj)
   }
 
@@ -35,8 +44,11 @@ export default function Create() {
             <span className=' text-sm font-bold  mb-2'>CNPJ</span>
             <input name="cnpj" value={cnpj} onChange={(text) => setcnpj(text.target.value)} className=' h-8 w-full bg-transparent border-b-grey-200 border-b-2 ' placeholder='Digite o cnpj da empresa' type="text" />
           </label>
+          {error &&
+            <span className=' text-red-500'>Verifique se todos os campos estão preenchidos corretamente</span>
+          }
           <button className='w-full  p-2 mt-10 bg-red-400 hover:bg-red-500 ' onClick={() => handlerCreate()}>
-            <span>Criar</span>
+            <span className=''>Criar</span>
           </button>
           <div className='w-full mt-5 flex justify-start items-center'>
           </div>
